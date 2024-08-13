@@ -41,7 +41,7 @@ public class XboxBroadcastExtension extends Extension {
         this.cacheLocation = this.getDataFolder() + File.separator + "cache";
         this.logger = this.getLogger();
         this.config = this.createConfig(ExtensionConfig.class, "config");
-        this.service = Executors.newScheduledThreadPool(2, new ThreadUtil("XboxBroadcastExtension"));
+        this.service = Executors.newCachedThreadPool(new ThreadUtil("XboxBroadcastExtension"));
         this.sessionManager = new SessionManager(this.cacheLocation, this.service, this.logger);
         this.sessionConfig = this.config.getSession();
         this.sessionInfo = this.sessionConfig.getSessionInfo();
@@ -51,8 +51,7 @@ public class XboxBroadcastExtension extends Extension {
 
         this.updateSessionInfo(this.sessionInfo);
 
-        final CommandManager commandManager = this.bdsAutoEnable.getCommandManager();
-        commandManager.registerCommand(new XboxBroadcastCommand(this), this);
+        this.bdsAutoEnable.getCommandManager().registerCommand(new XboxBroadcastCommand(this, service), this);
 
         this.service.execute(() -> {
             try {
@@ -92,7 +91,6 @@ public class XboxBroadcastExtension extends Extension {
                     // Update the session
                     this.sessionManager.updateSession(this.sessionInfo);
                     this.sessionManager.logger().info("&aZaktualizowano sesje!");
-
 
                 } catch (final SessionUpdateException exception) {
                     this.sessionManager.logger().error("&cNie udało się zaktualizować sesji", exception);

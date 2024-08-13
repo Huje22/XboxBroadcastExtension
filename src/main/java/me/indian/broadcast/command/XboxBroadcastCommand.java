@@ -1,5 +1,6 @@
 package me.indian.broadcast.command;
 
+import java.util.concurrent.ExecutorService;
 import me.indian.bds.command.Command;
 import me.indian.broadcast.XboxBroadcastExtension;
 import me.indian.broadcast.core.SessionManager;
@@ -7,11 +8,13 @@ import me.indian.broadcast.core.SessionManager;
 public class XboxBroadcastCommand extends Command {
 
     private final XboxBroadcastExtension xboxBroadcastExtension;
+    private final ExecutorService service;
     private final SessionManager sessionManager;
 
-    public XboxBroadcastCommand(final XboxBroadcastExtension xboxBroadcastExtension) {
+    public XboxBroadcastCommand(final XboxBroadcastExtension xboxBroadcastExtension, ExecutorService service) {
         super("xbox", "Zarządzanie Rozszerzeniem");
         this.xboxBroadcastExtension = xboxBroadcastExtension;
+        this.service = service;
         this.sessionManager = this.xboxBroadcastExtension.getSessionManager();
 
         this.addOption("reload", "Przeładowuje konfiguracje");
@@ -62,8 +65,8 @@ public class XboxBroadcastCommand extends Command {
 
             if (args.length >= 3) {
                 switch (args[1].toLowerCase()) {
-                    case "add" -> this.sessionManager.addSubSession(args[2]);
-                    case "remove" -> this.sessionManager.removeSubSession(args[2]);
+                    case "add" -> service.execute(() -> sessionManager.addSubSession(args[2]));
+                    case "remove" -> service.execute(() -> sessionManager.removeSubSession(args[2]));
                     default -> {
                         return true;
                     }
