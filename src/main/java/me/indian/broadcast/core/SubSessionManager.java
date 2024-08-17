@@ -1,6 +1,6 @@
 package me.indian.broadcast.core;
 
-import me.indian.bds.logger.Logger;
+import me.indian.util.logger.Logger;
 import me.indian.broadcast.core.exceptions.SessionUpdateException;
 import me.indian.broadcast.core.models.session.JoinSessionRequest;
 

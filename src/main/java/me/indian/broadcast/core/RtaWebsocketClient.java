@@ -1,6 +1,6 @@
 package me.indian.broadcast.core;
 
-import me.indian.bds.logger.Logger;
+import me.indian.util.logger.Logger;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 

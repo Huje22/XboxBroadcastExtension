@@ -10,10 +10,9 @@ import java.util.concurrent.TimeUnit;
 import me.indian.bds.BDSAutoEnable;
 import me.indian.bds.command.CommandManager;
 import me.indian.bds.extension.Extension;
-import me.indian.bds.logger.Logger;
 import me.indian.bds.server.properties.ServerProperties;
-import me.indian.bds.util.BedrockQuery;
-import me.indian.bds.util.ThreadUtil;
+import me.indian.util.BedrockQuery;
+import me.indian.util.ThreadUtil;
 import me.indian.broadcast.command.XboxBroadcastCommand;
 import me.indian.broadcast.config.ExtensionConfig;
 import me.indian.broadcast.config.SessionConfig;
@@ -21,6 +20,7 @@ import me.indian.broadcast.core.SessionInfo;
 import me.indian.broadcast.core.SessionManager;
 import me.indian.broadcast.core.exceptions.SessionCreationException;
 import me.indian.broadcast.core.exceptions.SessionUpdateException;
+import me.indian.util.logger.Logger;
 
 public class XboxBroadcastExtension extends Extension {
 

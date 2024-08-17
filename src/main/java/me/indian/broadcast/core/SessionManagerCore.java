@@ -2,7 +2,7 @@ package me.indian.broadcast.core;
 
 import com.github.mizosoft.methanol.Methanol;
 import com.google.gson.JsonParseException;
-import me.indian.bds.logger.Logger;
+import me.indian.util.logger.Logger;
 import me.indian.broadcast.core.exceptions.SessionCreationException;
 import me.indian.broadcast.core.exceptions.SessionUpdateException;
 import me.indian.broadcast.core.models.auth.XboxTokenInfo;

@@ -1,7 +1,7 @@
 package me.indian.broadcast.core;
 
 import com.google.gson.JsonParseException;
-import me.indian.bds.logger.Logger;
+import me.indian.util.logger.Logger;
 import me.indian.broadcast.config.FriendSyncConfig;
 import me.indian.broadcast.core.exceptions.XboxFriendsException;
 import me.indian.broadcast.core.models.friend.BlockRequest;

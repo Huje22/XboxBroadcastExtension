@@ -1,7 +1,7 @@
 package me.indian.broadcast.core;
 
 import com.google.gson.JsonObject;
-import me.indian.bds.logger.Logger;
+import me.indian.util.logger.Logger;
 
 import net.lenni0451.commons.httpclient.HttpClient;
 import net.raphimc.minecraftauth.MinecraftAuth;

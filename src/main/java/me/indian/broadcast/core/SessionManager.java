@@ -2,8 +2,8 @@ package me.indian.broadcast.core;
 
 import com.google.gson.JsonParseException;
 import com.google.gson.stream.JsonReader;
-import me.indian.bds.logger.Logger;
-import me.indian.bds.util.ThreadUtil;
+import me.indian.util.ThreadUtil;
+import me.indian.util.logger.Logger;
 import me.indian.broadcast.config.FriendSyncConfig;
 import me.indian.broadcast.core.exceptions.SessionCreationException;
 import me.indian.broadcast.core.exceptions.SessionUpdateException;
